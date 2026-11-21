@@ -1,6 +1,6 @@
 ---
 name: project-development
-description: Simulator Bot 工作区的开发规范。实施需求、修复缺陷或修改受版本控制的代码、配置和文档时使用，按目录分工定位仓库和实现路径，并遵循需求分支、提交、验证及 MR（GitHub 上称 PR）合并流程。
+description: Simulator Bot 工作区的开发规范。实施需求、修复缺陷或修改受版本控制的代码、配置和文档时使用，按目录分工定位仓库和实现，遵循平台前端约定及需求分支、验证、提交和 MR 合并流程。
 ---
 
 # Simulator Bot 项目开发规范
@@ -24,6 +24,12 @@ description: Simulator Bot 工作区的开发规范。实施需求、修复缺�
 - 跨工程的职责、接口边界或实施顺序变更写入 `design-docs/`。单个工程的技术方案写入该工程的 `docs/architecture/`。连接器已有 `docs/modules/`，模块设计沿用这个位置。已有中英双语文档时，按 `名称.md` 和 `名称.zh-CN.md` 配对更新。
 - `simulation-platform`、`scenario-evaluation` 和 `automation-agent-platform` 已在总体设计中划分职责。当前参考工作区尚无对应检出目录。涉及这些工程时先查 `design-docs/` 并确认对应仓库；新建工程的源码布局随该工程技术方案确定。
 - 例如，修改连接器运维界面，进入 `industrial-automation-connectors/`，在 `frontend/src/` 定位实现后从该仓库的目标分支开需求分支。若需求还改变连接器与世界模型的接口边界，同时在 `design-docs/` 更新跨工程设计，并关联两个 PR。
+
+## 平台业务前端规范
+
+- 顶栏左侧显示平台主名称 `similator-bot`。模块名称作为副标题和顶部横向一级导航的入口，例如 `Connectors`。
+- 进入模块后，左侧显示该模块的二级导航并高亮当前页。Connectors 的二级菜单包含设备建模、点位配置、设备实例、采集计划和采集规则。模块子页支持直接打开，刷新时保留当前位置。窄屏下二级菜单可以在顶栏下换行。
+- 新模块优先复用 Connectors 的 [WorkspaceShell.vue](../../../industrial-automation-connectors/frontend/src/WorkspaceShell.vue) 和 [workspace.css](../../../industrial-automation-connectors/frontend/src/workspace.css)。沿用顶栏、侧栏、内容区、状态区及共有的配色、字号、间距和响应式样式，由各模块提供自己的菜单、路由和业务内容。
 
 ## 按需求开分支
 
