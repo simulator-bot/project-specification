@@ -28,7 +28,7 @@ description: Simulator Bot 工作区的开发规范。实施需求、修复缺�
 ## 平台业务前端规范
 
 - 顶栏左侧显示平台主名称 `similator-bot`。模块名称作为副标题和顶部横向一级导航的入口，例如 `Connectors`。
-- 进入模块后，左侧显示该模块的二级导航并高亮当前页。Connectors 的二级菜单包含设备建模、点位配置、设备实例、采集计划和采集规则。模块子页支持直接打开，刷新时保留当前位置。窄屏下二级菜单可以在顶栏下换行。
+- 进入模块后，左侧显示该模块的二级导航并高亮当前页。Connectors 的二级菜单包含设备建模、点位配置、设备实例、采集计划、场景配置、场景监控和设备监控。模块子页支持直接打开，刷新时保留当前位置。窄屏下二级菜单可以在顶栏下换行。
 - 新模块优先复用 Connectors 的 [WorkspaceShell.vue](../../../industrial-automation-connectors/frontend/src/WorkspaceShell.vue) 和 [workspace.css](../../../industrial-automation-connectors/frontend/src/workspace.css)。沿用顶栏、侧栏、内容区、状态区及共有的配色、字号、间距和响应式样式，由各模块提供自己的菜单、路由和业务内容。
 
 ## 按需求开分支
